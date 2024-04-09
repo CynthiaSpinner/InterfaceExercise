@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -6,43 +7,57 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
+            var list = new List<IVehicle>();
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            var cynthiaCar = new Car()
+            {
+                Country = "Japan",
+                Insignia = "Oval",
+                Make = "Toyota",
+                Model = "Camery",
+                Color = "black",
+                Year = 2024,
+                NumberOfDoors = 4,
+                NumberOfSeats = 5,
 
-            //Create 3 classes called Car , Truck , & SUV
+            };
+        
+           var truck1 = new Truck()
+           {
+                Country = "US",
+                Insignia = "red lines",
+                Make = "Kensworth",
+                Model = "T680",
+                NumberOfDoors = 2,
+                NumberOfSeats = 2,
+                EngineSize = "MX-13 12.9 liter",
+                NumberOfWheels = 18,
 
-            //In your IVehicle:
+           };
+           var suv1 = new SUV()
+           {
+               Country = "UK",
+               Insignia = "Land Rover",
+               Make = "Land Rover",
+               Model = "Range Rover",
+               NumberOfDoors = 4,
+               NumberOfSeats = 5,
+               FourWheelDrive = true,
+               StorageSpace = true
+           };
+
+            list.Add(cynthiaCar);
+            list.Add(truck1);
+            list.Add(suv1);
+
             
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: public int NumberOfWheels { get; set; }
-                 */
-            
+           
+            foreach (IVehicle item in list)
+            {
+                item.DisplayDetails();
+            }
+           
 
-            //In ICompany: 
-            
-                /* Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 * Example: public string Logo { get; set; }
-                 */
-
-            //In each of your Car, Truck, and SUV classes
-
-                /* Create 2 members that are specific to each class
-                 * Example for Car: public bool HasTrunk { get; set; }
-                 * Example for SUV: public int NumberOfSeats { get; set; }
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 */
-
-            //Now, create objects of your 3 classes and give their members values.
-            //Creatively display and organize their values
-            
-            //Option for displaying values: 
-            //Create a stubbed out method called DisplayDetails in your IVehicle interface.
-            //Implement the stubbed out method in the derived classes.
-            //In the scope of them method, use string interpolation to display property values.
-            //In order to also interpolate values from ICompany, research how to extend interfaces.
             
         }
     }
